@@ -1,6 +1,7 @@
 package org.campus02.stoff.animal;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -63,6 +64,14 @@ class AnimalTest {
 		assertEquals("baby animal", baby.ageCategory());
 		assertEquals("young animal", young.ageCategory());
 		assertEquals("old animal", old.ageCategory());
+	}
+
+	@Test
+	void constructorThrowsIfAgeIsNegative() {
+		Executable createAnimalWithNegativeAge = () -> new Animal("", -1, "", "");
+
+		IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, createAnimalWithNegativeAge);
+		assertEquals("age must be >= 0", exception.getMessage());
 	}
 
 	private static AnimalBuilder anAnimal() {

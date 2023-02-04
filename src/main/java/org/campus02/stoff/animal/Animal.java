@@ -7,6 +7,10 @@ public class Animal {
 	private final String animalLoud;
 
 	public Animal(String name, int age, String species, String animalLoud) {
+		if (age < 0) {
+			throw new IllegalArgumentException("age must be >= 0");
+		}
+
 		this.name = name;
 		this.age = age;
 		this.species = species;
