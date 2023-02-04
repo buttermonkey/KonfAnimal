@@ -11,7 +11,7 @@ public class AnimalBuilder {
 		return this;
 	}
 
-	public Animal create() {
+	public Animal build() {
 		return new Animal(name, age, species, loud);
 	}
 

@@ -11,7 +11,7 @@ class AnimalTest {
 	void animalReportsTheCorrectLoud() {
 		Animal roaringAnimal = anAnimal()
 				.withLoud("Roar")
-				.create();
+				.build();
 
 		assertEquals("Roar", roaringAnimal.giveAnimalLoud());
 	}
@@ -20,7 +20,7 @@ class AnimalTest {
 	void animalReportsTheCorrectSpecies() {
 		Animal lion = anAnimal()
 				.withSpecies("Lion")
-				.create();
+				.build();
 
 		assertEquals("Lion", lion.getSpecies());
 	}
@@ -30,17 +30,17 @@ class AnimalTest {
 		Animal fiveYearOldToni = anAnimal()
 				.withName("Toni")
 				.withAge(5)
-				.create();
+				.build();
 
 		Animal threeYearOldSusi = anAnimal()
 				.withName("Susi")
 				.withAge(3)
-				.create();
+				.build();
 
 		Animal oneYearOldBaby = anAnimal()
 				.withName("Baby")
 				.withAge(1)
-				.create();
+				.build();
 
 		assertEquals("Toni, 5 years", fiveYearOldToni.getNameAndAge());
 		assertEquals("Susi, 3 years", threeYearOldSusi.getNameAndAge());
@@ -51,15 +51,15 @@ class AnimalTest {
 	void animalReportsTheCorrectAgeCategory() {
 		Animal baby = anAnimal()
 				.withAge(2)
-				.create();
+				.build();
 
 		Animal young = anAnimal()
 				.withAge(4)
-				.create();
+				.build();
 
 		Animal old = anAnimal()
 				.withAge(5)
-				.create();
+				.build();
 
 		assertEquals("baby animal", baby.ageCategory());
 		assertEquals("young animal", young.ageCategory());
