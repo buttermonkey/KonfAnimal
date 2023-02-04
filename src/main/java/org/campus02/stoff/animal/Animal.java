@@ -1,10 +1,10 @@
 package org.campus02.stoff.animal;
 
 public class Animal {
-	private String name;
-	private int age;
-	private String species;
-	private String animalLoud;
+	private final String name;
+	private final int age;
+	private final String species;
+	private final String animalLoud;
 
 	public Animal(String name, int age, String species, String animalLoud) {
 		this.name = name;
@@ -19,5 +19,9 @@ public class Animal {
 
 	public String giveAnimalLoud() {
 		return animalLoud;
+	}
+
+	public String getNameAndAge() {
+		return name + ", " + age + " " + ((age == 1) ? "year" : "years");
 	}
 }
