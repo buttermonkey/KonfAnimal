@@ -8,26 +8,45 @@ class AnimalTest {
 
 	@Test
 	void animalReportsTheCorrectLoud() {
-		Animal lion = new Animal("Toni", 5, "Lion", "Roar");
+		Animal roaringAnimal = anAnimal()
+				.withLoud("Roar")
+				.create();
 
-		assertEquals("Roar", lion.giveAnimalLoud());
+		assertEquals("Roar", roaringAnimal.giveAnimalLoud());
 	}
 
 	@Test
 	void animalReportsTheCorrectSpecies() {
-		Animal lion = new Animal("Toni", 5, "Lion", "Roar");
+		Animal lion = anAnimal()
+				.withSpecies("Lion")
+				.create();
 
 		assertEquals("Lion", lion.getSpecies());
 	}
 
 	@Test
 	void animalReportsTheCorrectNameAndAge() {
-		Animal lion = new Animal("Toni", 5, "Lion", "Roar");
-		Animal susi = new Animal("Susi", 3, "", "");
-		Animal baby = new Animal("Baby", 1, "", "");
+		Animal fiveYearOldToni = anAnimal()
+				.withName("Toni")
+				.withAge(5)
+				.create();
 
-		assertEquals("Toni, 5 years", lion.getNameAndAge());
-		assertEquals("Susi, 3 years", susi.getNameAndAge());
-		assertEquals("Baby, 1 year", baby.getNameAndAge());
+		Animal threeYearOldSusi = anAnimal()
+				.withName("Susi")
+				.withAge(3)
+				.create();
+
+		Animal oneYearOldBaby = anAnimal()
+				.withName("Baby")
+				.withAge(1)
+				.create();
+
+		assertEquals("Toni, 5 years", fiveYearOldToni.getNameAndAge());
+		assertEquals("Susi, 3 years", threeYearOldSusi.getNameAndAge());
+		assertEquals("Baby, 1 year", oneYearOldBaby.getNameAndAge());
+	}
+
+	private static AnimalBuilder anAnimal() {
+		return new AnimalBuilder();
 	}
 }
