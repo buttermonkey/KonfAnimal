@@ -46,6 +46,25 @@ class AnimalTest {
 		assertEquals("Baby, 1 year", oneYearOldBaby.getNameAndAge());
 	}
 
+	@Test
+	void animalReportsTheCorrectAgeCategory() {
+		Animal baby = anAnimal()
+				.withAge(2)
+				.create();
+
+		Animal young = anAnimal()
+				.withAge(4)
+				.create();
+
+		Animal old = anAnimal()
+				.withAge(5)
+				.create();
+
+		assertEquals("baby animal", baby.ageCategory());
+		assertEquals("young animal", young.ageCategory());
+		assertEquals("old animal", old.ageCategory());
+	}
+
 	private static AnimalBuilder anAnimal() {
 		return new AnimalBuilder();
 	}

@@ -24,4 +24,13 @@ public class Animal {
 	public String getNameAndAge() {
 		return name + ", " + age + " " + ((age == 1) ? "year" : "years");
 	}
+
+	public String ageCategory() {
+		if (age <= 2)
+			return "baby animal";
+		else if (age <= 4)
+			return "young animal";
+		else
+			return "old animal";
+	}
 }
