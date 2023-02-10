@@ -1,20 +1,10 @@
 package org.campus02.stoff.animal;
 
-public class Animal {
-	private final String name;
-	private final int age;
-	private final String species;
-	private final String animalLoud;
-
-	public Animal(String name, int age, String species, String animalLoud) {
+public record Animal (String name, int age, String species, String animalLoud) {
+	public Animal {
 		if (age < 0) {
 			throw new IllegalArgumentException("age must be >= 0");
 		}
-
-		this.name = name;
-		this.age = age;
-		this.species = species;
-		this.animalLoud = animalLoud;
 	}
 
 	public String getSpecies() {
